@@ -1,0 +1,19 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    volumes:
+      - ./mongodb-docker:/data/db
+#
+# Para crear un usuario en la base y que el usuario tenga su propia base de datos
+# db.createUser({
+#   user: "admin2",
+#   pwd: "admin2",
+#   roles: [{ role: "readWrite", db: "base-de-admin2" }]
+# })
